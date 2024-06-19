@@ -1,0 +1,330 @@
+<%- include('./layouts/header') %>
+
+
+<% if (locals.errors && locals.errors.length > 0) { %>
+    <div class="alert alert-danger">
+  
+        <% locals.errors.forEach(function(error) { %>
+          <span><%= error %></span>
+        <% }); %>
+  
+    </div>
+  <% } %>
+  
+  <% if (locals.success && locals.success.length > 0) { %>
+    <div class="alert alert-success">
+    
+        <% locals.success.forEach(function(success) { %>
+          <span><%= success %></span>
+        <% }); %>
+   
+    </div>
+  <% } %>
+  
+<!----------------------------------------------------------------------------------------->
+ 
+
+
+
+
+<!--CODE OF HERE IS INSIDE documentation.txt in this project-->
+
+
+
+
+
+
+
+
+<!----------------------------------------------------------------------------------------->
+
+<!--------------------------------------SIDE BAR------------------------------------------------>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Grand Item 1</span></a>
+                    </li>
+                    <li>
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Grand Item 2</span></a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Grand Item 3</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Grand Item 4</span> </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">Name of User</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col py-3">
+            <!--content area-->
+   <!--Profile card-->
+<div class="container">
+    <% if (GoogleUser) { %>
+        <div class="card mb-3" style="max-width: 540px; background-color: rgb(0, 0, 0); color: white; margin-top: 20px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="/userIcon.jpg" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" id="googleInfoContainer">
+                        <h5 class="card-title" id="googleUserNames">Welcome, <%= GoogleUser.googleUsername %></h5>
+                        <p class="card-text"><small class="">ID:, <%= GoogleUser.googleID %></small></p>
+                        <p style="display: none; visibility: hidden; width: 0; height: 0;" id="googleMongoDBid" class="card-text"><small class=""><%=GoogleUser._id %></small></p>
+                     
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else if (orcidUser) { %>
+        <div class="card mb-3" style="max-width: 540px; background-color: rgb(0, 0, 0); color: white; margin-top: 20px;" >
+            <div class="row no-gutters">
+                <div class="col-md-4" >
+                    <img src="/userIcon.jpg" class="card-img" alt="..."  >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" id="orcidInfoContainer">
+                  
+                        <h5 class="card-title" id="orcidUserNames">Welcome, <%= orcidUser.orcidName %></h5>
+                        <small>
+                        <p class="card-text"><strong>ID: </strong> <%= orcidUser.orcidID %></p>
+                       
+                        <p class="card-text" id="orcidUserEmpTitle"> <strong> Role: </strong> <%= orcidUser.orcidEmploymentRoleTitle %> </p>
+                        
+                        <p class="card-text" id="orcidUserInstitute"> <strong> Institution : </strong> <%= orcidUser.orcidEmploymentInstitution %> </p>
+
+                        <p style=" display: none; visibility: hidden; width: 0; height: 0;" id="orcidMongoDBid" class="card-text"><small class=""><%=orcidUser._id %></small></p>
+                        </small>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="card mb-3" style="max-width: 540px; background-color: rgb(0, 0, 0); color: white; margin-top: 20px;">
+            <div class="row no-gutters">
+                <div class="col-md-4" >
+                    <img src="/userIcon.jpg" class="card-img" alt="..." >
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body" id="normalUserInfoContainer">
+                        <h5 class="card-title" id="normalUserEmail">Welcome, <%= userData.email %></h5>
+                        <p style="display: none; visibility: hidden; width: 0; height: 0;" id="normalUserDBid" class="card-text"><small class=""><%=userData._id %></small></p>
+                        <p class="card-text"><small class=""></small></p>
+                     
+                       
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+
+
+
+<!---->
+
+<div class="container cards">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="/orange.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">OpenTheso</h5>
+                    <p class="card-text">Gestion des thesaurus </p>
+                    <a href="#" class="btn btn-primary">OpenTheso</a>
+                </div>
+            </div>
+        </div>
+
+       
+
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="/orange.png" class="card-img-top" alt="..." >
+                <div class="card-body">
+                    <h5 class="card-title">Constat d'etat</h5>
+                    <p class="card-text"> Formulaire pour les états de l'objet.</p>
+                    <a  class="btn btn-primary" id="button3">Constat d'etat</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+
+                <ol class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-start"
+                    >
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">Number of Constat d'etat submitted</div>
+                      
+                      </div>
+                      <span class="badge text-bg-primary rounded-pill"><%= numberOfDocs %></span>
+                    </li>
+                </ol>
+              
+                <ul class="">
+                    
+                    <% for (var i = 0; i < recordsForConstatidSubmitted.length; i++) { %>
+                        <li> <a href="http://localhost:5000/report/<%= recordsForConstatidSubmitted[i] %>"> <%= recordsForConstatidSubmitted[i] %> </a></li>
+                        <a href="http://localhost:5000/Update/<%= recordsForConstatidSubmitted[i] %>" class="btn btn-primary">Update</a>
+                    <% } %>
+
+                  </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+            <!-- content area-->
+        </div>
+    </div>
+</div>
+<!-------------------------------------------SIDE BAR END --------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<script>
+
+
+var orcidInfoContainer = document.getElementById('orcidInfoContainer');
+var googleInfoContainer = document.getElementById('googleInfoContainer');
+
+  
+    
+    
+   
+   
+    document.getElementById('button3').addEventListener('click', function() {
+        // Construct the URL with query parameters
+
+
+
+        
+    
+        if(orcidInfoContainer){
+
+            var orcidUserNames = document.getElementById('orcidUserNames').innerText
+            var orcidUserNamesTrim = orcidUserNames.replace('Welcome, ', '');
+
+            var orcidUserEmpTitle = document.getElementById('orcidUserEmpTitle').innerText
+            var orcidUserEmpTitleTrim = orcidUserEmpTitle.replace('Role: ', '');
+
+            var orcidUserInstitute = document.getElementById('orcidUserInstitute').innerText
+            var orcidUserInstituteTrim = orcidUserInstitute.replace('Institution : ', '');
+
+            var orcidUserMongoId = document.getElementById('orcidMongoDBid').innerText
+
+         
+          
+            var redirectUrl = 'http://localhost:5000/?orcidName=' + encodeURIComponent(orcidUserNamesTrim) + '&orcidEmploymentRoleTitle=' + encodeURIComponent(orcidUserEmpTitleTrim)+ '&orcidEmploymentInstitution=' + encodeURIComponent(orcidUserInstituteTrim) + '&orcidMongoID=' + encodeURIComponent(orcidUserMongoId);
+           
+        }
+
+        else if (googleInfoContainer){
+            var googleUserNames = document.getElementById('googleUserNames').innerText
+            var googleUserNamesTrim = googleUserNames.replace('Welcome, ', '');
+            var googleUserMongoDBid = document.getElementById('googleMongoDBid').innerText
+          
+            var redirectUrl = 'http://localhost:5000/?googleUsername=' + encodeURIComponent(googleUserNamesTrim) + '&googleMongoDBid=' + encodeURIComponent(googleUserMongoDBid)
+           
+        }
+        else{
+            var normalUserEmail = document.getElementById('normalUserEmail').innerText;
+            var normalUserEmailTrim = normalUserEmail.replace('Welcome, ', '');
+
+         
+            var normalUsermongoDBid = document.getElementById('normalUserDBid').innerText;
+
+            var redirectUrl = 'http://localhost:5000/?email=' + encodeURIComponent(normalUserEmailTrim) + '&NormalUserMongoDBid=' + encodeURIComponent(normalUsermongoDBid);
+        }
+        
+      
+
+  
+        window.location.href = redirectUrl;
+    });
+    
+</script>
+<!---------------------------------------------------->
+
+<%- include('./layouts/footer') %>

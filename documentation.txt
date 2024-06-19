@@ -1,0 +1,19 @@
+http://localhost:3080/
+
+npm run dev  -- command to run the application
+
+
+
+
+<% if (GoogleUser) { %>
+    <h2>Welcome, <%= GoogleUser.googleUsername %></h2>
+<% } else if (orcidUser) { %>
+        <h2>Welcome, <%= orcidUser.orcidID %></h2>
+       <p>Employment Department: <%= orcidUser.orcidEmploymentDepartmentName %></p>  
+        <p>Employment role title : <%= orcidUser.orcidEmploymentRoleTitle %></p>
+        <p>Education role title  <%= orcidUser.orcidEducationRoleTitle %></p>
+       
+  
+<% } else { %>
+    <h2>Welcome, <%= userData.email %></h2>
+<% } %>
